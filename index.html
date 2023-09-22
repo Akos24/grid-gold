@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kép</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --mybrown: rgb(180, 101, 17);
+            --mydarkyellow: rgb(251, 213, 75);
+            --mygold: rgb(253, 245, 93);
+            --mywhite: rgb(254, 243, 227);
+            --mydarkeryellow: rgb(235, 176, 20);
+            --mymostdarkeryellow: rgb(220, 150, 19);
+            --mydarkbrown: rgb(119, 38, 4);
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid-container {
+            display: grid;
+            background-color: white;
+            width: 400px;
+            height: 400px;
+            grid-template-columns: repeat(16, 1fr);
+            grid-template-rows: repeat(16, 1fr);
+
+        }
+
+        .item {
+            background-color: white;
+        }
+
+        .one {
+            grid-area: 3 / 11 / 4 / span 2;
+            background-color: var(--mybrown);
+        }
+
+        .two {
+            grid-area: 4 / 8 / 5 / span 3;
+            background-color: var(--mybrown);
+        }
+
+        .three {
+            grid-area: 4 / 11 / 5 / span 2;
+            background-color: var(--mydarkyellow);
+        }
+
+        .four {
+            grid-area: 4 / 13 / 5 / span 1;
+            background-color: var(--mybrown);
+        }
+
+        .five {
+            grid-area: 5 / 5 / 6 / span 3;
+            background-color: var(--mybrown);
+        }
+
+        .six {
+            grid-area: 5 / 8 / 6 / span 6;
+            background-color: var(--mygold);
+        }
+        
+        .seven {
+            grid-area: 5 / 14 / 6 / span 1;
+            background-color: var(--mybrown);
+        }
+
+        .eight {
+            grid-area: 6 / 2 / 7 / span 3;
+            background-color: var(--mybrown);
+        }
+
+        .nine {
+            grid-area: 6 / 5 / 7 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .ten {
+            grid-area: 6 / 6 / 7 / span 8;
+            background-color: var(--mygold);
+        }
+
+        .eleven {
+            grid-area: 6 / -4 / 7 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .twelve {
+            grid-area: 6 / 15 / 7 / span 1;
+            background-color: var(--mydarkbrown);
+        }
+
+        .thirteen {
+            grid-area: 7 / 1 / 8 / span 1;
+            background-color: var(--mybrown);
+        }
+
+        .fourteen {
+            grid-area: 7 / 2 / 8 / span 1;
+            background-color: var(--mywhite);
+        }
+
+        .fifteen {
+            grid-area: 7 / 3 / 8 / span 10;
+            background-color: var(--mygold);
+        }
+
+        .sixteen {
+            grid-area: 7 / 13 / 8 / span 2;
+            background-color: var(--mywhite);
+        }
+
+        .seventeen {
+            grid-area: 7 / 15 / 8 / span 1;
+            background-color: var(--mygold);
+        }
+
+        .eighteen {
+            grid-area: 7 / 16 / 8 / span 1;
+            background-color: var(--mydarkbrown);
+        }
+
+        .ninteen {
+            grid-area: 8 / 1 / 9 / span 1;
+            background-color: var(--mybrown);
+        }
+
+        .twenty {
+            grid-area: 8 / 2 / 9 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .twentyone {
+            grid-area: 8 / 3 / 9 / span 1;
+            background-color: var(--mywhite);
+        }
+
+        .twentytwo {
+            grid-area: 8 / 4 / 9 / span 6;
+            background-color: var(--mygold);
+        }
+
+        .twentythree {
+            grid-area: 8 / 10 / 9 / span 3;
+            background-color: var(--mywhite);
+        }
+
+        .twentyfour {
+            grid-area: 8 / 13 / 9 / span 1;
+            background-color: var(--mygold);
+        }
+
+        .twentyfive {
+            grid-area: 8 / 14 / 9 / span 1;
+            background-color: var(--mymostdarkeryellow);
+        }
+
+        .twentysix {
+            grid-area: 8 / 15 / 9 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .twentyseven {
+            grid-area: 8 / 16 / 9 / span 1;
+            background-color: var(--mydarkbrown);
+        }
+
+        .twentynine {
+            grid-area: 9 / 1 / 10 / span 1;
+            background-color: var(--mybrown);
+        }
+
+        .thirty {
+            grid-area: 9 / 2 / 10 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .thirtyone {
+            grid-area: 9 / 3 / 10 / span 1;
+            background-color: var(--mygold);
+        }
+
+        .a {
+            grid-area: 9 / 4 / 10 / span 1;
+            background-color: var(--mywhite);
+        }
+
+        .b {
+            grid-area: 9 / 5 / 10 / span 2;
+            background-color: var(--mygold);
+        }
+
+        .c {
+            grid-area: 9 / 7 / 10 / span 3;
+            background-color: var(--mywhite);
+        }
+
+        .d {
+            grid-area: 9 / 10 / 10 / span 1;
+            background-color: var(--mygold);
+        }
+
+        .e {
+            grid-area: 9 / 11 / 10 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .f {
+            grid-area: 9 / 12 / 10 / span 3;
+            background-color: var(--mymostdarkeryellow);
+        }
+
+        .g {
+            grid-area: 9 / 15 / 10 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .h {
+            grid-area: 9 / 16 / 10 / span 1;
+            background-color: var(--mydarkbrown);
+        }
+
+        .i {
+            grid-area: 10 / 1 / 11 / span 1;
+            background-color: var(--mybrown);
+        }
+
+        .j {
+            grid-area: 10 / 2 / 11 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .k {
+            grid-area: 10 / 3 / 11 / span 1;
+            background-color: var(--mygold);
+        }
+
+        .l {
+            grid-area: 10 / 4 / 11 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .m {
+            grid-area: 10 / 5 / 11 / span 2;
+            background-color: var(--mywhite);
+        }
+
+        .o {
+            grid-area: 10 / 7 / 11 / span 1;
+            background-color: var(--mygold);
+        }
+
+        .p {
+            grid-area: 10 / 8 / 11 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .q {
+            grid-area: 10 / 9 / 11 / span 4;
+            background-color: var(--mymostdarkeryellow);
+        }
+
+        .r {
+            grid-area: 10 / 13 / 11 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .s {
+            grid-area: 10 / 14 / 11 / span 2;
+            background-color: var(--mydarkyellow);
+        }
+
+        .t {
+            grid-area: 10 / 16 / 11 / span 1;
+            background-color: var(--mydarkbrown);
+        }
+
+        .u {
+            grid-area: 11 / 1 / 12 / span 1;
+            background-color: var(--mybrown);
+        }
+
+        .v {
+            grid-area: 11 / 2 / 12 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .w {
+            grid-area: 11 / 3 / 12 / span 1;
+            background-color: var(--mygold);
+        }
+
+        .x {
+            grid-area: 11 / 4 / 12 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .y {
+            grid-area: 11 / 5 / 12 / span 1;
+            background-color: var(--mygold);
+        }
+
+        .z {
+            grid-area: 11 / 6 / 12 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .aa {
+            grid-area: 11 / 7 / 12 / span 4;
+            background-color: var(--mymostdarkeryellow);
+        }
+
+        .ba {
+            grid-area: 11 / 11 / 12 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .ca {
+            grid-area: 11 / 12 / 12 / span 2;
+            background-color: var(--mydarkyellow);
+        }
+
+        .da {
+            grid-area: 11 / 14 / 12 / span 2;
+            background-color: var(--mydarkbrown);
+        }
+
+        .ea {
+            grid-area: 12 / 2 / 13 / span 1;
+            background-color: var(--mybrown);
+        }
+
+        .fa {
+            grid-area: 12 / 3 / 13 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .ga {
+            grid-area: 12 / 4 / 13 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .ha {
+            grid-area: 12 / 5 / 13 / span 1;
+            background-color: var(--mygold);
+        }
+
+        .ia {
+            grid-area: 12 / 6 / 13 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .ja {
+            grid-area: 12 / 7 / 13 / span 2;
+            background-color: var(--mymostdarkeryellow);
+        }
+
+        .ka {
+            grid-area: 12 / 9 / 13 / span 2;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .la {
+            grid-area: 12 / 11 / 13 / span 3;
+            background-color: var(--mydarkbrown);
+        }
+
+        .ma {
+            grid-area: 13 / 3 / 14 / span 1;
+            background-color: var(--mybrown);
+        }
+
+        .na {
+            grid-area: 13 / 4 / 14 / span 1;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .oa {
+            grid-area: 13 / 5 / 14 / span 1;
+            background-color: var(--mydarkyellow);
+        }
+
+        .pa {
+            grid-area: 13 / 6 / 14 / span 2;
+            background-color: var(--mydarkeryellow);
+        }
+
+        .qa {
+            grid-area: 13 / 8 / 14 / span 3;
+            background-color: var(--mydarkbrown);
+        }
+
+        .ra {
+            grid-area: 14 / 4 / 15 / span 2;
+            background-color: var(--mybrown);
+        }
+
+        .sa {
+            grid-area: 14 / 6 / 15 / span 2;
+            background-color: var(--mydarkbrown);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="grid-container">
+            <div class="item one"></div>
+            <div class="item two"></div>
+            <div class="item three"></div>
+            <div class="item four"></div>
+            <div class="item five"></div>
+            <div class="item six"></div>
+            <div class="item seven"></div>
+            <div class="item eight"></div>
+            <div class="item nine"></div>
+            <div class="item ten"></div>
+            <div class="item eleven"></div>
+            <div class="item twelve"></div>
+            <div class="item thirteen"></div>
+            <div class="item fourteen"></div>
+            <div class="item fifteen"></div>
+            <div class="item sixteen"></div>
+            <div class="item seventeen"></div>
+            <div class="item eighteen"></div>
+            <div class="item ninteen"></div>
+            <div class="item twenty"></div>
+            <div class="item twentyone"></div>
+            <div class="item twentytwo"></div>
+            <div class="item twentythree"></div>
+            <div class="item twentyfour"></div>
+            <div class="item twentyfive"></div>
+            <div class="item twentysix"></div>
+            <div class="item twentyseven"></div>
+            <div class="item twentyeight"></div>
+            <div class="item twentynine"></div>
+            <div class="item thirty"></div>
+            <div class="item thirtyone"></div>
+            <div class="item a"></div>
+            <div class="item b"></div>
+            <div class="item c"></div>
+            <div class="item d"></div>
+            <div class="item e"></div>
+            <div class="item f"></div>
+            <div class="item g"></div>
+            <div class="item h"></div>
+            <div class="item i"></div>
+            <div class="item j"></div>
+            <div class="item k"></div>
+            <div class="item l"></div>
+            <div class="item m"></div>
+            <div class="item n"></div>
+            <div class="item o"></div>
+            <div class="item p"></div>
+            <div class="item q"></div>
+            <div class="item r"></div>
+            <div class="item s"></div>
+            <div class="item t"></div>
+            <div class="item u"></div>
+            <div class="item v"></div>
+            <div class="item w"></div>
+            <div class="item x"></div>
+            <div class="item y"></div>
+            <div class="item z"></div>
+            <div class="item aa"></div>
+            <div class="item ba"></div>
+            <div class="item ca"></div>
+            <div class="item da"></div>
+            <div class="item ea"></div>
+            <div class="item fa"></div>
+            <div class="item ga"></div>
+            <div class="item ha"></div>
+            <div class="item ia"></div>
+            <div class="item ja"></div>
+            <div class="item ka"></div>
+            <div class="item la"></div>
+            <div class="item ma"></div>
+            <div class="item na"></div>
+            <div class="item oa"></div>
+            <div class="item pa"></div>
+            <div class="item qa"></div>
+            <div class="item ra"></div>
+            <div class="item sa"></div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
